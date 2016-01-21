@@ -36,13 +36,14 @@ seed_merchants.each do |mer|
 end
 
 seed_products = [
-  {name: "Sea Anemone", price: 5.00, photo_url: "http://www.cabrillomarineaquarium.org/_photos/species-green-sea-anemone.jpg", description: "Is it fluffy, or slimy?", quantity: 5, merchant_id: 1},
-  {name: "Starfish", price: 5.00, photo_url: "http://www.buckeyescuba.com/wp-content/uploads/2012/04/starfish2.jpg", description: "", quantity: 5, merchant_id: 2},
-  {name: "Dolphin", price: 5.00, photo_url: "http://weknowyourdreams.com/images/dolphin/dolphin-01.jpg", description: "", quantity: 0, merchant_id: 2},
-  {name: "Shark Hat", price: 5.00, photo_url: "http://img.costumecraze.com/images/vendors/rasta/3690-Sharknado-Man-Eating-Shark-Costume-Hat-large.jpg", description: "THIS IS AMAZING", quantity: 5, merchant_id: 2},
-  {name: "PAWS", price: 5.00, photo_url: "http://www.tshirtvortex.net/wp-content/uploads/PAWS.jpg", description: "Cats are scarier than sharks anyways, let's be real.", quantity: 5, merchant_id: 2},
-  {name: "Finding Nemo Sweatshirt", price: 5.00, photo_url: "http://g02.a.alicdn.com/kf/HTB1o5_5JFXXXXXsXXXXq6xXFXXXB/Finding-Nemo-Crewneck-Sweatshirt-Dory-and-Marlin-Cartoon-Jumper-Women-Men-Fashion-Clothing-Jogging-Sport-Tops.jpg", description: "Neeeeeemo", quantity: 5, merchant_id: 2},
-  {name: "Clownfish Costume", price: 5.00, photo_url: "http://images.halloweencostume.com/products/9676/1-1/newborn-clown-fish-costume.jpg", description: "Squee", quantity: 5, merchant_id: 2}
+  {name: "Sea Anemone", price: 5.00, photo_url: "http://www.cabrillomarineaquarium.org/_photos/species-green-sea-anemone.jpg", description: "Is it fluffy, or slimy?", quantity: 5, merchant_id: 1,
+  weight: 40, length: 10, width: 10, height: 10},
+  {name: "Starfish", price: 5.00, photo_url: "http://www.buckeyescuba.com/wp-content/uploads/2012/04/starfish2.jpg", description: "", quantity: 5, merchant_id: 2, weight: 23, length: 5, width: 5, height: 2},
+  {name: "Dolphin", price: 5.00, photo_url: "http://weknowyourdreams.com/images/dolphin/dolphin-01.jpg", description: "", quantity: 0, merchant_id: 2, weight: 300, length: 230, width: 60, height: 25},
+  {name: "Shark Hat", price: 5.00, photo_url: "http://img.costumecraze.com/images/vendors/rasta/3690-Sharknado-Man-Eating-Shark-Costume-Hat-large.jpg", description: "THIS IS AMAZING", quantity: 5, merchant_id: 2, weight: 30, length: 17, width: 30, height: 6},
+  {name: "PAWS", price: 5.00, photo_url: "http://www.tshirtvortex.net/wp-content/uploads/PAWS.jpg", description: "Cats are scarier than sharks anyways, let's be real.", quantity: 5, merchant_id: 2, weight: 200, length: 30, width: 30, height: 30},
+  {name: "Finding Nemo Sweatshirt", price: 5.00, photo_url: "http://g02.a.alicdn.com/kf/HTB1o5_5JFXXXXXsXXXXq6xXFXXXB/Finding-Nemo-Crewneck-Sweatshirt-Dory-and-Marlin-Cartoon-Jumper-Women-Men-Fashion-Clothing-Jogging-Sport-Tops.jpg", description: "Neeeeeemo", quantity: 5, merchant_id: 2, weight: 75, length: 100, width: 23, height: 12},
+  {name: "Clownfish Costume", price: 5.00, photo_url: "http://images.halloweencostume.com/products/9676/1-1/newborn-clown-fish-costume.jpg", description: "Squee", quantity: 5, merchant_id: 2, weight: 340, length: 50, width: 50, height: 20}
 ]
 
 seed_products.each do |pro|
@@ -58,7 +59,7 @@ Product.find(6).categories << Category.find(4)
 Product.find(7).categories << Category.find(4)
 
 seed_orders = [
-  {purchase_time: Time.now, name: "Ricky", email: "ricky@awesome.com", street: "Ada Street", city: "Seattle", state: "WA", zip: 98112, cc_num: "1234", cc_exp: Time.now.to_date, sec_code: 123, bill_zip: 98112, status: "Paid"}
+  {purchase_time: Time.now, name: "Ricky", email: "ricky@awesome.com", street: "Ada Street", city: "Seattle", state: "WA", zip: "98112", country: "US", cc_num: "1234", cc_exp: Time.now.to_date, sec_code: 123, bill_zip: 98112, status: "Paid"}
 ]
 
 seed_orders.each do |ord|
