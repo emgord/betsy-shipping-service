@@ -11,8 +11,24 @@ seed_categories.each do |cat|
 end
 
 seed_merchants = [
-  {username: "kdefliese", email: "kdefliese@gmail.com", password: "cats", password_confirmation: "cats"},
-  {username: "seabay", email: "seabay@seabay.com", password: "seabay", password_confirmation: "seabay"}
+  {username: "Emily",
+  email: "em@gmail.com",
+  password: "cats",
+  password_confirmation: "cats",
+  address1: "51 York Terrace",
+  country: "US",
+  city: "Brookline",
+  state: "MA",
+  zip: "02446"},
+  {username: "Lauren",
+  email: "seabay@seabay.com",
+  password: "seabay",
+  password_confirmation: "seabay",
+  address1: "123 S Main Street",
+  country: "CA",
+  city: "Ottawa",
+  state: "ON",
+  zip: "K1P 1J1"}
 ]
 
 seed_merchants.each do |mer|
