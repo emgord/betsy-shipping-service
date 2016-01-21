@@ -4,6 +4,11 @@ class OrdersController < ApplicationController
   before_action :get_order_items, only: [:index, :status]
   before_action :get_order_item_revenue, only: :show
 
+  def shipping_cost
+    @order = Order.find(params[:id])
+    render :shipping
+  end
+
   def checkout
     # get @current_order info from carts controller
     @cart_items = session[:cart]
@@ -23,6 +28,7 @@ class OrdersController < ApplicationController
     @products.each do |product|
       @order_total += product.price
     end
+
   end
 
   def create
@@ -64,7 +70,7 @@ class OrdersController < ApplicationController
       end
       # remove items from cart
       session[:cart] = nil
-      redirect_to order_confirm_path(@order.id)
+      redirect_to shipping_path(@order)
     else
       # tells guest which products were sold out and removed from cart
       if !@inventory_errors.empty?

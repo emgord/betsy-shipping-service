@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post 'orders/checkout' => 'orders#create'
   get 'orders/:id/confirm' => 'orders#confirm', as: :order_confirm
   get "merchants/:id/orders/show/:status" => 'orders#status', as: :status_orders
+  get 'orders/shipping/:id' => 'orders#shipping_cost', as: :shipping
 
   # merchants routes
   get "merchants/home" => "merchants#home", as: :merchant_home
