@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218003713) do
+ActiveRecord::Schema.define(version: 20160121220641) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(version: 20151218003713) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "address1"
+    t.string   "address2"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -59,19 +65,23 @@ ActiveRecord::Schema.define(version: 20151218003713) do
 
   create_table "orders", force: :cascade do |t|
     t.datetime "purchase_time"
-    t.string   "status",        default: "Pending"
+    t.string   "status",            default: "Pending"
     t.string   "name"
     t.string   "email"
     t.string   "street"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip"
     t.string   "cc_num"
     t.date     "cc_exp"
     t.integer  "sec_code"
     t.integer  "bill_zip"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.string   "zip"
+    t.string   "country"
+    t.integer  "shipping_cost"
+    t.string   "shipping_type"
+    t.string   "delivery_estimate"
   end
 
   create_table "products", force: :cascade do |t|
@@ -88,6 +98,10 @@ ActiveRecord::Schema.define(version: 20151218003713) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "status",             default: "Active"
+    t.integer  "weight"
+    t.integer  "length"
+    t.integer  "width"
+    t.integer  "height"
   end
 
   add_index "products", ["merchant_id"], name: "index_products_on_merchant_id"
