@@ -1,22 +1,26 @@
 <h1>Please Select a Shipping Option</h1>
 
 <%= form_tag order_confirm_path(@order.id) do %>
-  <% @shipping_costs.each do |item_id, price_array| %>
+  <% @shipping_costs.each do |item_id, price_hash| %>
     <legend>
-      Shipping Options For <%= Order_Item.find(item_id).product.name %>
+      Shipping Options For <%# Order_Item.find(item_id).product.name %>
     </legend>
-      <% price_array.each do |option|
-        <% price = number_to_currency(option[1]) %>
-        <%= radio_button_tag(:shipping, option) %>
-        <%= label_tag(:shipping_type, "#{option[0]}, #{price}") %>
+      <% price_hash.each do |method, price| %>
+        <% price = number_to_currency(price) %>
+        <%= "#{method}, #{price}" %>
+        <% end %>
+      <% end %>
+    <% end %>
+        <%# radio_button_tag(:shipping_type, option) %>
+        <%# label_tag(:shipping_type, "#{method}, #{price}") %>
 
 
-      <% fields_for "items[]", item do |f| %>
-        <%= f.radio_button_tag :  %>
+      <%# fields_for "items[]", item do |f| %>
+        <%# f.radio_button_tag :  %>
 
 
 
 
 
 
-<%= f.submit "Place Order", class: "btn btn-primary" %>
+<%# f.submit "Place Order", class: "btn btn-primary" %>

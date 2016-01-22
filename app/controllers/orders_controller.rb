@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
     @order.order_items.each do |item|
     @shipping_costs[item.id] = (get_shipping_costs(item))
     end
-    binding.pry
     render :shipping
   end
 
@@ -145,7 +144,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(order:[:purchase_time, :name, :email, :street, :city, :state, :zip, :cc_num, :cc_exp, :sec_code, :bill_zip, :status])
+    params.permit(order:[:purchase_time, :name, :email, :street, :city, :state, :zip, :cc_num, :cc_exp, :sec_code, :bill_zip, :status, :country])
   end
 
   def get_order

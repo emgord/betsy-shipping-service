@@ -24,11 +24,11 @@ seed_merchants = [
   email: "seabay@seabay.com",
   password: "seabay",
   password_confirmation: "seabay",
-  address1: "123 S Main Street",
-  country: "CA",
-  city: "Ottawa",
-  state: "ON",
-  zip: "K1P 1J1"}
+  address1: "216 James St",
+  country: "US",
+  city: "Seattle",
+  state: "WA",
+  zip: "98104"}
 ]
 
 seed_merchants.each do |mer|
