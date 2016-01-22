@@ -1,3 +1,10 @@
-<h1>Shipping estimate!!</h1>
+<h1>Please Select a Shipping Option</h1>
 
-<%= link_to "Checkout", order_confirm_path(@order.id) %>
+<!-- <%= form_for @order, url: order_confirm_path(@order.id) do |f| %>
+
+<% @shipping_options.each do |option| %>
+<% price = number_to_currency(option[1]) %>
+<%= radio_button_tag(:shipping, "#{option[0]}") %>
+<%= label_tag(:age_child, "#{option[0]}, #{price}") %>
+
+<%= f.submit "Place Order", class: "btn btn-primary" %> -->
