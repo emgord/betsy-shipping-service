@@ -1,3 +1,4 @@
+require 'pry'
 class OrdersController < ApplicationController
   before_action :require_login, only: [:index, :pending, :cancelled, :paid, :completed, :show]
   before_action :get_order, only: [:confirm, :show]
@@ -6,10 +7,11 @@ class OrdersController < ApplicationController
 
   def shipping_cost
     @order = Order.find(params[:id])
-    @shipping_costs = []
+    @shipping_costs = {}
     @order.order_items.each do |item|
-    @shipping_costs.push(get_shipping_costs(item))
+    @shipping_costs[item.id] = (get_shipping_costs(item))
     end
+    binding.pry
     render :shipping
   end
 
