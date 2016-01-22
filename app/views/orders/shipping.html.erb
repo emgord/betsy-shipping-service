@@ -8,7 +8,7 @@
 
 <h1>Please Select a Shipping Option</h1>
 
-<%= form_for @order, url: order_confirm_path(@order.id), class:"form-inline" do |f| %>
+<%= form_for @order, url: save_shipping_path(@order.id), class:"form-inline" do |f| %>
   <% @order.order_items.each do |order_item| %>
     <%= f.fields_for :order_items, order_item do |shipping_type| %>
       <legend>Shipping Options For <%= order_item.product.name %></legend>
@@ -16,7 +16,8 @@
         <% price_hash.each do |method, price| %>
         <% price = number_to_currency(price/100) %>
           <div class="form-group radio">
-            <%= shipping_type.radio_button :shipping_type, method %> <%= "#{method}: #{price}" %><br>
+            <%= shipping_type.radio_button :shipping_type, method %> <%= "#{method}: #{price}" %>
+            <br>
           </div>
         <% end %>
       <% end %>

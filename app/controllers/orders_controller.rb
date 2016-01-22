@@ -14,6 +14,17 @@ class OrdersController < ApplicationController
     render :shipping
   end
 
+  def save_shipping
+    data = params[:order][:order_items_attributes]
+    data.each do |i, update_hash|
+      item = OrderItem.find(update_hash[:id])
+      item.shipping_type = update_hash[:shipping_type]
+      item.save
+    end
+    @order = Order.find(params[:id])
+    redirect_to :order_confirm
+  end
+
   def checkout
     # get @current_order info from carts controller
     @cart_items = session[:cart]
