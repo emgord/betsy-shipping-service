@@ -1,10 +1,9 @@
 <h1>Please Select a Shipping Option</h1>
 
-<%# form_for @order, url: order_confirm_path(@order.id) do |f| %>
-<%#@order.order_item.each do |package| %>
-  <%#@shipping_options.each do |option| %>
-  <%#price = number_to_currency(option[1]) %>
-  <%# radio_button_tag(:shipping, "#{option[0]}") %>
-  <%# label_tag(:shipping_type, "#{option[0]}, #{price}") %>
+<%= form_for @order, url: order_confirm_path(@order.id) do |f| %>
+  <% @shipping_costs.each do |option| %>
+  <% price = number_to_currency(option[1]) %>
+  <%= radio_button_tag(:shipping, "#{option[0]}") %>
+  <%= label_tag(:shipping_type, "#{option[0]}, #{price}") %>
 
-<%# f.submit "Place Order", class: "btn btn-primary" %>
+<%= f.submit "Place Order", class: "btn btn-primary" %>

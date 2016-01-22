@@ -6,11 +6,10 @@ class OrdersController < ApplicationController
 
   def shipping_cost
     @order = Order.find(params[:id])
-    shipping_costs = []
+    @shipping_costs = []
     @order.order_items.each do |item|
-    shipping_costs.push(get_shipping_costs(item))
+    @shipping_costs.push(get_shipping_costs(item))
     end
-    puts shipping_costs
     render :shipping
   end
 
