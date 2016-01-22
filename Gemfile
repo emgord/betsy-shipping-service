@@ -43,6 +43,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -51,7 +52,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rails-erd'
-  gem 'pry'
+  gem 'pry-rails'
   gem 'sqlite3'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
