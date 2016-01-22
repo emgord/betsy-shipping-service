@@ -44,7 +44,7 @@ FactoryGirl.define do
     cc_exp Time.now.to_date
     sec_code 123
     bill_zip 98112
-    status "Paid"}
+    status "Paid"
   end
 
   factory :order_item do
