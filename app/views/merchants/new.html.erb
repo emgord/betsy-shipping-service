@@ -18,13 +18,25 @@
       <h1>Create New Account</h1>
       <%= form_for @merchant, class: "form" do |f| %>
         <%= f.label "Username:" %>
-        <%= f.text_field :username, class: "form-control" %>
+        <%= f.text_field :username, class: "form-control", :required => true %>
         <%= f.label "Email address:" %>
-        <%= f.email_field :email, class: "form-control" %>
+        <%= f.email_field :email, class: "form-control", :required => true %>
+        <%= f.label "Shop Address Line 1:" %>
+        <%= f.text_field :address1, class: "form-control", :required => true %>
+        <%= f.label "Address Line 2:" %>
+        <%= f.text_field :address2, class: "form-control" %>
+        <%= f.label "City:" %>
+        <%= f.text_field :city, class: "form-control", :required => true %>
+        <%= f.label "State/Province:" %>
+        <%= f.text_field :state, class: "form-control", :required => true %>
+        <%= f.label "Zipcode:" %>
+        <%= f.text_field :zip, class: "form-control", :required => true %>
+        <%= f.label "Country:" %>
+        <%= f.text_field :country, class: "form-control", :required => true %>
         <%= f.label "Password:" %>
-        <%= f.password_field :password, class: "form-control" %>
+        <%= f.password_field :password, class: "form-control", :required => true %>
         <%= f.label "Confirm password:" %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.password_field :password_confirmation, class: "form-control", :required => true %>
         <br>
         <%= f.submit class: "btn btn-danger" %>
         <br>
