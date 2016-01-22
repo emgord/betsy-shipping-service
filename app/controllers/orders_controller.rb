@@ -6,6 +6,11 @@ class OrdersController < ApplicationController
 
   def shipping_cost
     @order = Order.find(params[:id])
+    shipping_costs = []
+    @order.order_items.each do |item|
+    shipping_costs.push(get_shipping_costs(item))
+    end
+    puts shipping_costs
     render :shipping
   end
 
@@ -183,6 +188,28 @@ class OrdersController < ApplicationController
 
     # find total revenue for the signed in merchant's order items
     @order_total = OrderItem.cost_of_many(@order_items)
+  end
+
+  def get_shipping_costs(item)
+      merchant = item.product.merchant
+      customer = item.order
+      package = item.product
+      return HTTParty.post('http://localhost:3001/estimate',
+      :body =>  {origin: {country: merchant.country,
+                 state: merchant.state,
+                 city: merchant.city,
+                 zip: merchant.zip},
+      destination: {country: customer.country,
+                    state: customer.state,
+                    city: customer.city,
+                    zip: customer.zip},
+      package: { weight: package.weight,
+                length: package.length,
+                width: package.width,
+                height: package.height}
+              }.to_json,
+      :headers => { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
+    )
   end
 
 end

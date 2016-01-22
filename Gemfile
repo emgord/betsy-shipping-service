@@ -31,6 +31,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+
+#Use HTTParty for API requests
+gem 'httparty'
+
 # use Paperclip as the photo uploader
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '< 2.0'

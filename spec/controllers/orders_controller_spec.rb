@@ -125,6 +125,14 @@ RSpec.describe OrdersController, type: :controller do
     session[:cart] = cart_items
   end
 
+  describe "POST 'shipping_cost'" do
+    let(:order_item){create (:order_item)}
+    let(:order){order_item.order}
+    it "renders the shipping view" do
+      post :shipping_cost, id: order.id
+    end
+  end
+
   describe "GET 'checkout'" do
     it "renders the checkout page" do
       get :checkout
