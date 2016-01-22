@@ -20,6 +20,9 @@ class OrdersController < ApplicationController
       item = OrderItem.find(update_hash[:id])
       item.shipping_type = update_hash[:shipping_type]
       item.save
+      item.shipping_cost = params[:order]["#{item.shipping_type}"]
+      binding.pry
+      item.save
     end
     @order = Order.find(params[:id])
     redirect_to :order_confirm

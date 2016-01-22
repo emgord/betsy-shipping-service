@@ -14,9 +14,10 @@
       <legend>Shipping Options For <%= order_item.product.name %></legend>
         <% price_hash = @shipping_costs[order_item.id] %>
         <% price_hash.each do |method, price| %>
-        <% price = number_to_currency(price/100) %>
+        <% dollars = number_to_currency(price/100) %>
           <div class="form-group radio">
-            <%= shipping_type.radio_button :shipping_type, method %> <%= "#{method}: #{price}" %>
+            <%= shipping_type.radio_button :shipping_type, method %> <%= "#{method}: #{dollars}" %>
+            <%= f.hidden_field method.to_s, :value => price %>
             <br>
           </div>
         <% end %>
