@@ -1,10 +1,11 @@
 <h1>Please Select a Shipping Option</h1>
 
 <%= form_tag order_confirm_path(@order.id) do %>
-  <% @shipping_costs.each do |item_id, price_hash| %>
+  <% @order.order_items.each do |item| %>
     <legend>
-      Shipping Options For <%# Order_Item.find(item_id).product.name %>
+      Shipping Options For <%= item.product.name %>
     </legend>
+    <% price_hash = @shipping_costs[item.id] %>
       <% price_hash.each do |method, price| %>
         <% price = number_to_currency(price/100) %>
         <%= "#{method}, #{price}" %>
