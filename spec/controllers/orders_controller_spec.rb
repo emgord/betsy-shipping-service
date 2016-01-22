@@ -135,7 +135,7 @@ RSpec.describe OrdersController, type: :controller do
   describe "POST 'create'" do
     it "redirects to order confirm view" do
       post :create, good_params
-      expect(subject).to redirect_to order_confirm_path(1)
+      expect(subject).to redirect_to shipping_path(1)
     end
 
     it "redirects to the checkout view if given bad data" do
