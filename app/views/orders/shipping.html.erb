@@ -6,7 +6,7 @@
       Shipping Options For <%# Order_Item.find(item_id).product.name %>
     </legend>
       <% price_hash.each do |method, price| %>
-        <% price = number_to_currency(price) %>
+        <% price = number_to_currency(price/100) %>
         <%= "#{method}, #{price}" %>
         <% end %>
       <% end %>
